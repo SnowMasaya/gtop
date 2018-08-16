@@ -123,18 +123,8 @@ tegrastats parse_tegrastats(const char * buffer) {
 
   get_mem_stats(ts, stats.at(1));
 
-  switch (ts.version) {
-    case TX1:
-      get_cpu_stats_tx1(ts, stats.at(5));
-      get_gpu_stats(ts, stats.at(15));
-      break;
-    case TX2:
-      get_cpu_stats_tx2(ts, stats.at(5));
-      get_gpu_stats(ts, stats.at(13));
-      break;
-    case TK1: // TODO
-      break;
-  }
+  get_cpu_stats_tx2(ts, stats.at(5));
+  get_gpu_stats(ts, stats.at(9));
 
   return ts;
 }
